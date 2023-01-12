@@ -1,0 +1,21 @@
+{
+  "name": "daily-code",
+  "version": "1.0.0",
+  "description": "This is a daily code practice",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Mihir Poojara",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

@@ -1,12 +1,31 @@
-const headingForNomalJS = document.createElement("h1");
-headingForNomalJS.innerHTML = "Namaste from Normal JavaScript";
-const rootForNormalJS = document.getElementById("rootForNormalJS");
-rootForNormalJS.appendChild(headingForNomalJS);
+/**
+ *
+ * HMR : Hot Module Replacement
+ * File Watcher Algorithms - C++
+ * Building
+ * Minification
+ * Cleaning the code
+ * Dev and production build
+ * Super Fast build algorithm
+ * Image Optimisation
+ * Caching while development
+ * Compression
+ * Compatible with older versions of browsers
+ * It adds polyfills
+ * HTTPS on dev
+ * Port numbers
+ * Consistent Hashing Algorithms
+ * Zero Config Bundlers
+ *
+ */
+
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const headingForReact1 = React.createElement(
   "h1",
   { id: "title", key: "1" },
-  "Heading 1"
+  "Heading from Parcel"
 );
 const headingForReact2 = React.createElement(
   "h2",
