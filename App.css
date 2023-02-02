@@ -1,0 +1,59 @@
+.logo {
+  width: 150px;
+  height: 80px;
+}
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-list {
+  margin: 30px;
+}
+.header-list > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style-type: none;
+  font-size: 19px;
+}
+.header-list > ul > li {
+  padding: 20px;
+}
+
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 200px;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  height: auto;
+  margin: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.footer {
+  height: 100px;
+  width: 100%;
+}
