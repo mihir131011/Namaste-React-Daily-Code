@@ -1,10 +1,10 @@
-export default Shimmer = (props) => {
+export default Shimmer = () => {
   return (
     <div className="cardList">
       {Array(10)
         .fill("")
-        .map(() => (
-          <div className="shimmer-card"></div>
+        .map((index) => (
+          <div key={index} className="shimmer-card"></div>
         ))}
     </div>
   );
