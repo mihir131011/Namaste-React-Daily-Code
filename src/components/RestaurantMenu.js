@@ -1,35 +1,45 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { IMG_CDN_URL } from "../../constants";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import useRestaurant from "../utils/useRestaurant";
+import { IMG_CDN_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { useEffect, useState } from "react";
 
 const RestaurantMenu = () => {
-  const { id } = useParams();
-  const [restaurantInfo, setRestaurantInfo] = useState({});
-  useEffect(() => {
-    try {
-      getRestaurantInfo();
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
-
-  async function getRestaurantInfo() {
-    const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/v4/full?lat=23.034664&lng=72.515983&menuId=${id}`
-    );
-    const json = await data.json();
-    setRestaurantInfo(json.data);
-  }
-
+  const { resId } = useParams();
+  const restaurantInfo = useRestaurant(resId);
+  const [isLiked, setIsLiked] = useState(false);
   return (
     <>
-      {!restaurantInfo?.menu?.items ? (
+      {!restaurantInfo ? (
         <Shimmer />
       ) : (
         <div style={{ display: "flex" }}>
           <div>
-            <h1>Restaurant name : {restaurantInfo?.name}</h1>
+            <button
+              onClick={() => {
+                setIsLiked(isLiked ? false : true);
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill={isLiked ? "red" : "none"}
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke={isLiked ? "red" : "black"}
+                className="w-6 h-6 group-hover:"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                />
+              </svg>
+            </button>
+
+            <h1>
+              Restaurant name :{" "}
+              {restaurantInfo?.cards?.[0]?.card.card.info.name}
+            </h1>
             <img
               src={`${IMG_CDN_URL}/${restaurantInfo?.cloudinaryImageId}`}
             ></img>

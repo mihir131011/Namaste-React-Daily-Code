@@ -1,15 +1,19 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./App.css";
 import HomePageHeader from "./components/Header";
 import HomePageBody from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./components/About";
+// import About from "./components/About";
 import Contact from "./components/Contact";
 import HomePageFooter from "./components/Footer";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/ProfileClass";
+import Search from "./components/Search";
+const About = lazy(() => import("./components/About"));
+const Instamart = lazy(() => import("./components/Instamart"));
+
 const HomePage = () => (
   <div>
     <HomePageHeader />
@@ -29,8 +33,16 @@ const appRouter = createBrowserRouter([
         element: <HomePageBody />,
       },
       {
+        path: "/search",
+        element: <Search />,
+      },
+      {
         path: "about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<div> Please Wait... </div>}>
+            <About />
+          </Suspense>
+        ),
         children: [
           {
             path: "profile",
@@ -43,8 +55,16 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/restaurant/:id",
+        path: "/restaurant/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },
