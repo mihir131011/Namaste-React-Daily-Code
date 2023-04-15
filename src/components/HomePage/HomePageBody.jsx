@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
-import useOnline from "../utils/useOnline";
+import Shimmer from "../Shimmer/Shimmer";
+import useOnline from "../../utils/useOnline";
 const filterRestaurants = (searchText, restaurant) => {
   return restaurant.filter((restaurant) =>
     restaurant?.data?.name?.toLowerCase()?.includes(searchText?.toLowerCase())

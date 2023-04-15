@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import useOnline from "../utils/useOnline";
+import useOnline from "../../utils/useOnline";
 
 export default HomePageHeader = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,7 +15,7 @@ export default HomePageHeader = () => {
           <img
             src="https://logos-world.net/wp-content/uploads/2020/11/Swiggy-Logo.png"
             alt=""
-            className="h-20 p-2"
+            className="h-20"
           ></img>
         </Link>
         <div>

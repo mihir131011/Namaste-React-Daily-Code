@@ -3,7 +3,7 @@ import Profile from "./ProfileClass";
 import ProfileFunctionalComponent from "./Profile";
 import React, { Component } from "react";
 
-class About extends Component {
+class AboutUs extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,7 @@ class About extends Component {
 
     return (
       <div>
-        <h1>About Us Page</h1>
+        <h1>AboutUs Us Page</h1>
         <p>{this.state.count}</p>
         <button
           onClick={() => {
@@ -46,4 +46,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default AboutUs;
